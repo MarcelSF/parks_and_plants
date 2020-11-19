@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+  root to: "gardens#index"
   resources :gardens do
     resources :plants, only: [:create]
   end
+
+  resources :plants, only: [] do
+    resources :plant_tags, only: [:new, :create]
+  end
+
 
   resources :plants, only: [:destroy]
 
@@ -9,6 +15,13 @@ end
 
 # new -> to be able render a form page
 # create -> to post the form data and acctually creates the object
+
+
+# DAY 2
+# GENERATE THE TAG MODEL
+# GENERATE THE MODEL THAT WILL BE USED TO JOIN PLANTS AND TAGS
+# ADD VALIDATIONS AND ASSOCIATIONS
+# TEST OUR MODELSrails
 
 
 # FOLLOW THE FLOW ! ! !
